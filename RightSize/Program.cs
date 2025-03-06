@@ -13,7 +13,7 @@ namespace RightSize
                     Console.WriteLine("[EARLY STOP]");
                     break;
                 }
-                if (s.Length > 3 || s.Length < 8)
+                if (s.Length > 3)
                 {
                     Console.WriteLine(s);
                 }
