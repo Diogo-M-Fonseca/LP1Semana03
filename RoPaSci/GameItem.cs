@@ -3,7 +3,7 @@ using System;
 namespace GameItems
 {
     [Flags]
-    enum GameItems
+    enum GameItem
     {
         Rock,
         Paper,

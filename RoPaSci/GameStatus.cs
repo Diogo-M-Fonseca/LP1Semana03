@@ -3,7 +3,7 @@ using System;
 namespace GameStatuses
 {
     [Flags]
-    enum GameStatuses
+    enum GameStatus
     {
         Draw,
         Player1Wins,
