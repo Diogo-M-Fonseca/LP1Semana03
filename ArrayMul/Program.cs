@@ -9,41 +9,44 @@ namespace ArrayMul
     {
         private static void Main(string[] args)
         {
-            float [,] matrixA = new float [2,2];
-            float [] matrixB = new float [2];
+            float [,] matrixA = new float [2,1];
+            
 
-            float arg1 = float.Parse(args[0]);
-            matrixA[0,0]= arg1;
-
-            float arg2 = float.Parse(args[1]);
-            matrixA[0, 1]= arg2;
-
-            float arg3 = float.Parse(args[2]);
-            matrixA[1, 0]= arg3;
-
-            float arg4 = float.Parse(args[3]);
-            matrixA[1, 1]= arg4;
-
-            float arg5 = float.Parse(args[4]);
-            matrixB[0]= arg5;
-
-            float arg6= float.Parse(args[5]);
-            matrixB[1]= arg6;
-
+            matrixA[0, 0] = float.Parse(args[0], CultureInfo.InvariantCulture);
+            matrixA[0, 1] = float.Parse(args[1], CultureInfo.InvariantCulture);
+            matrixA[1, 0] = float.Parse(args[2], CultureInfo.InvariantCulture);
+            matrixA[1, 1] = float.Parse(args[3], CultureInfo.InvariantCulture);
             float[] a = new float[2];
 
-            for (int i =0; i<2; i++)
+            float[,] matrixB = new float[2, 1];
+
+            matrixB[0, 0] = float.Parse(args[4], CultureInfo.InvariantCulture);
+            matrixB[1, 0] = float.Parse(args[5], CultureInfo.InvariantCulture);
+
+            float[,] result = new float[2, 1];
+
+            for (int l = 0; l < 2; l++)
             {
-                a[i] = 0;
-                for (int j =0; j <2; j++)
+                for (int j = 0; j < 1; j++)
                 {
-                    a[i] += matrixA[i,j]*matrixB[j];
+                    result[l, j] = 0;
+                    for (int c = 0; c < 2; c++)
+                    {
+                        result[l, j] += matrixA[l, c] * matrixB[c, j];
+                    }
                 }
             }
-            foreach (float valor in a)
+
+            for (int i = 0; i < 2; i++)
             {
-                Console.WriteLine($"| {valor, 7:f2} |");
+                for (int j = 0; j < 1; j++)
+                {
+                    Console.WriteLine($"| {result[i, j],7:F2} |");
+                }
             }
+
+
         }
     }
 }
+
